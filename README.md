@@ -1,1 +1,4 @@
-# keysmith-py
+keysmith-py
+===========
+
+Authentication Token Generator
