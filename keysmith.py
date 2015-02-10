@@ -24,7 +24,9 @@ def random_key(words, degree):
     return key
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Authentication Token Generator'
+    )
     parser.add_argument(
         '-d', '--degree',
         help='Specify the number of words to include.',
