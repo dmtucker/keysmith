@@ -30,7 +30,7 @@ optional arguments:
   -p POPULATION, --population POPULATION
                         alphanumeric, default, local, printable, or a path
   --stats               statistics for the key
-  --version             keysmith 0.2.0
+  --version             keysmith 0.2.1
 $ keysmith -n 4
 correct horse battery staple
 ```
