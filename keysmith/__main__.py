@@ -10,6 +10,7 @@ import os
 import string
 import sys
 
+from . import __version__
 from . import keysmith
 
 
@@ -36,11 +37,20 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
         default=False,
         action='store_true'
     )
+    parser.add_argument(
+        '--version',
+        help='keysmith {version}'.format(version=__version__),
+        default=False,
+        action='store_true'
+    )
     return parser
 
 
 def main():
     args = cli().parse_args()
+    if args.version:
+        print(__version__)
+        sys.exit(0)
     words = {
         'alphanumeric': string.ascii_letters+string.digits,
         'local': string.letters+string.digits,
