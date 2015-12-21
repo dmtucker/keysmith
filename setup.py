@@ -12,7 +12,7 @@ with open('README.md', 'r') as f:
 setuptools.setup(
     name='keysmith',
     version=__version__,
-    license='MIT',
+    license='GPL',
     description='Diceware-style Password Generator',
     long_description=long_description,
     url='https://github.com/dmtucker/keysmith-py',
