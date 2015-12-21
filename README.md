@@ -19,6 +19,7 @@ Keysmith can be run as a command-line utility.
 ```
 $ keysmith --help
 usage: keysmith [-h] [-d DELIMITER] [-n NSAMPLES] [-p POPULATION] [--stats]
+                [--version]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -29,6 +30,7 @@ optional arguments:
   -p POPULATION, --population POPULATION
                         alphanumeric, default, local, printable, or a path
   --stats               statistics for the key
+  --version             keysmith 0.2.0
 $ keysmith -n 4
 correct horse battery staple
 ```
