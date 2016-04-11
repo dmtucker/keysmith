@@ -4,6 +4,8 @@ Keysmith randomly chooses words from a list and concatenates them.
 With a sufficiently large list, these make [decent passphrases](//xkcd.com/936) that tend to be more memorable than other random passwords.
 The concept is essentially the same as (and arguably simpler than) [Diceware](//en.wikipedia.org/wiki/Diceware).
 
+[![PyPI Version](https://img.shields.io/pypi/v/keysmith.svg)](https://pypi.python.org/pypi/keysmith)
+
 ## Installation
 
 Keysmith is available on [PyPI](https://pypi.python.org/pypi/keysmith).
