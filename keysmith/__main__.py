@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Keysmith Interface"""
+
 
 from __future__ import absolute_import
 from __future__ import print_function
@@ -10,11 +12,12 @@ import os
 import string
 import sys
 
-from . import __version__
-from . import keysmith
+from keysmith import __version__
+from keysmith import Key
 
 
 def cli(parser=argparse.ArgumentParser(prog='keysmith')):
+    """Parse CLI arguments and options."""
     parser.add_argument(
         '-d', '--delimiter',
         help='a delimiter for the samples (teeth) in the key',
@@ -39,7 +42,7 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
     )
     parser.add_argument(
         '--version',
-        help='keysmith {version}'.format(version=__version__),
+        help='Keysmith v{version}'.format(version=__version__),
         default=False,
         action='store_true'
     )
@@ -47,6 +50,7 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
 
 
 def main():
+    """Execute CLI commands."""
     args = cli().parse_args()
     if args.version:
         print(__version__)
@@ -64,7 +68,7 @@ def main():
             )
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = keysmith.Key(
+    key = Key(
         seq=words,
         nteeth=args.nsamples,
         delimiter=args.delimiter

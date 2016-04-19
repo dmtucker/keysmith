@@ -1,13 +1,19 @@
-from __future__ import absolute_import
+"""Key Definition"""
 
+from __future__ import absolute_import
 import random
+
 
 class Key(str):
 
+    """A Secret String Composed of Teeth"""
+
     class Tooth(str):
 
-        def __new__(self, seq):
+        """A Piece of a Key"""
+
+        def __new__(cls, seq):
             return random.SystemRandom().choice(seq).strip()
 
-    def __new__(self, seq, nteeth=6, delimiter=' '):
-        return delimiter.join([self.Tooth(seq) for i in range(nteeth)])
+    def __new__(cls, seq, nteeth=6, delimiter=' '):
+        return delimiter.join([cls.Tooth(seq) for _ in range(nteeth)])

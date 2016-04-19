@@ -25,6 +25,7 @@ setup(
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    include_package_data=True,
     entry_points={'console_scripts': ['keysmith = keysmith.__main__:main']},
     keywords='password generator keygen',
     classifiers=[
