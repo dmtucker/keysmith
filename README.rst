@@ -2,27 +2,29 @@ Keysmith
 ========
 
 Keysmith randomly chooses words from a list and concatenates them. With
-a sufficiently large list, these make [decent
-passphrases](//xkcd.com/936) that tend to be more memorable than other
-random passwords. The concept is essentially the same as (and arguably
-simpler than) [Diceware](//en.wikipedia.org/wiki/Diceware).
+a sufficiently large list, these make `decent
+passphrases <//xkcd.com/936>`__ that tend to be more memorable than
+other random passwords. The concept is essentially the same as (and
+arguably simpler than) `Diceware <//en.wikipedia.org/wiki/Diceware>`__.
 
-[![PyPI
-Version](https://img.shields.io/pypi/v/keysmith.svg)](https://pypi.python.org/pypi/keysmith)
+|PyPI Version|
 
 Installation
 ------------
 
-Keysmith is available on [PyPI](https://pypi.python.org/pypi/keysmith).
+Keysmith is available on
+`PyPI <https://pypi.python.org/pypi/keysmith>`__.
 
-``` {.sh}
-pip install keysmith
-```
+.. code:: sh
+
+    pip install keysmith
 
 Usage
 -----
 
 Keysmith can be run as a command-line utility.
+
+::
 
     $ keysmith --help
     usage: keysmith [-h] [-d DELIMITER] [-n NSAMPLES] [-p POPULATION] [--stats]
@@ -43,12 +45,16 @@ Keysmith can be run as a command-line utility.
 
 Keysmith can also be imported into other Python projects.
 
-``` {.python}
-import string
-import keysmith
-print(keysmith.Key(seq=string.letters, nteeth=12, delimiter=''))
-```
+.. code:: python
 
-#### Pro Tip
+    import string
+    import keysmith
+    print(keysmith.Key(seq=string.letters, nteeth=12, delimiter=''))
 
-> Use Keysmith with KeePass and Yubikey!
+Pro Tip
+~~~~~~~
+
+    Use Keysmith with KeePass and Yubikey!
+
+.. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
+   :target: https://pypi.python.org/pypi/keysmith
