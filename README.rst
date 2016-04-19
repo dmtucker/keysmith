@@ -24,24 +24,9 @@ Usage
 
 Keysmith can be run as a command-line utility.
 
-::
+.. code:: sh
 
-    $ keysmith --help
-    usage: keysmith [-h] [-d DELIMITER] [-n NSAMPLES] [-p POPULATION] [--stats]
-                    [--version]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      -d DELIMITER, --delimiter DELIMITER
-                            a delimiter for the samples (teeth) in the key
-      -n NSAMPLES, --nsamples NSAMPLES
-                            the number of random samples to take
-      -p POPULATION, --population POPULATION
-                            alphanumeric, default, local, printable, or a path
-      --stats               statistics for the key
-      --version             keysmith 0.2.1
-    $ keysmith -n 4
-    correct horse battery staple
+    keysmith --help
 
 Keysmith can also be imported into other Python projects.
 
