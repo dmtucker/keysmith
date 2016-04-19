@@ -1,0 +1,3 @@
+graft keysmith
+global-exclude *.py[cod] __pycache__
+include LICENSE
