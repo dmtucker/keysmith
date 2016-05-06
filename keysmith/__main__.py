@@ -56,8 +56,8 @@ def main():
         print(__version__)
         sys.exit(0)
     words = {
-        'alphanumeric': string.ascii_letters+string.digits,
-        'local': string.letters+string.digits,
+        'alphanumeric': string.ascii_letters + string.digits,
+        'local': string.letters + string.digits,
         'printable': string.printable,
     }.get(args.population)
     if words is None:
@@ -75,13 +75,13 @@ def main():
     )
     print(key)
     if args.stats:
-        print('='*len(key))
+        print('=' * len(key))
         print('characters = {characters}'.format(characters=len(key)))
         print('   samples = {nteeth}'.format(nteeth=args.nsamples))
         print('population = {pop}'.format(pop=len(words)))
         print('   entropy {sign} {bits}b'.format(
             sign='<' if len(args.delimiter) < 1 else '~',
-            bits=round(math.log(len(words), 2)*args.nsamples, 2)
+            bits=round(math.log(len(words), 2) * args.nsamples, 2)
         ))
 
 
