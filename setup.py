@@ -8,7 +8,6 @@ https://packaging.python.org/en/latest/distributing.html
 https://github.com/pypa/sampleproject
 """
 
-from __future__ import absolute_import
 from setuptools import setup, find_packages
 import keysmith
 
@@ -32,9 +31,7 @@ setup(
         'License :: OSI Approved :: '
         'GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Intended Audience :: End Users/Desktop',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Development Status :: 4 - Beta',
     ],
 )

@@ -2,10 +2,6 @@
 
 """Keysmith Interface"""
 
-
-from __future__ import absolute_import
-from __future__ import print_function
-
 import argparse
 import math
 import os
@@ -31,7 +27,7 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
     )
     parser.add_argument(
         '-p', '--population',
-        help='alphanumeric, default, local, printable, or a path',
+        help='alphanumeric, default, printable, or a path',
         default='default'
     )
     parser.add_argument(
@@ -57,7 +53,6 @@ def main():
         sys.exit(0)
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
-        'local': string.letters + string.digits,
         'printable': string.printable,
     }.get(args.population)
     if words is None:
