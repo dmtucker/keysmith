@@ -7,7 +7,7 @@ passphrases <//xkcd.com/936>`__ that tend to be more memorable than
 other random passwords. The concept is essentially the same as (and
 arguably simpler than) `Diceware <//en.wikipedia.org/wiki/Diceware>`__.
 
-|PyPI Version|
+|Build Status| |PyPI Version|
 
 Installation
 ------------
@@ -41,9 +41,6 @@ Pro Tip
 
     Use Keysmith with KeePass and Yubikey!
 
-.. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
-   :target: https://pypi.python.org/pypi/keysmith
-
 License
 -------
 
@@ -62,3 +59,8 @@ General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with this library; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+
+.. |Build Status| image:: https://img.shields.io/travis/dmtucker/keysmith.svg
+   :target: https://travis-ci.org/dmtucker/keysmith
+.. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
+   :target: https://pypi.python.org/pypi/keysmith
