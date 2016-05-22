@@ -12,4 +12,3 @@ install:
 script:
   - pep8 keysmith setup.py
   - pylint keysmith setup.py
-  - python -m unittest discover
