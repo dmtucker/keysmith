@@ -13,5 +13,6 @@ install:
   - python setup.py sdist
   - pip install ./dist/*
 script:
+  - keysmith --help
   - pep8 keysmith setup.py
   - pylint keysmith setup.py
