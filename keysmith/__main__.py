@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Keysmith Interface"""
 
 import argparse
