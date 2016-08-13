@@ -6,8 +6,7 @@ import os
 import string
 import sys
 
-from keysmith import __version__
-from keysmith import Key
+import keysmith
 
 
 def cli(parser=argparse.ArgumentParser(prog='keysmith')):
@@ -36,7 +35,7 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
     )
     parser.add_argument(
         '--version',
-        help='Keysmith v{version}'.format(version=__version__),
+        help='Keysmith v{version}'.format(version=keysmith.__version__),
         default=False,
         action='store_true'
     )
@@ -47,7 +46,7 @@ def main():
     """Execute CLI commands."""
     args = cli().parse_args()
     if args.version:
-        print(__version__)
+        print(keysmith.__version__)
         sys.exit(0)
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
@@ -61,7 +60,7 @@ def main():
             )
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = Key(
+    key = keysmith.Key(
         seq=words,
         nteeth=args.nsamples,
         delimiter=args.delimiter
