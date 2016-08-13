@@ -60,7 +60,7 @@ def main():
             )
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = keysmith.Key(
+    key = keysmith.generated.key(
         seq=words,
         nteeth=args.nsamples,
         delimiter=args.delimiter
