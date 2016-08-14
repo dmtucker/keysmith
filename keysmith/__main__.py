@@ -4,7 +4,6 @@ import argparse
 import math
 import os
 import string
-import sys
 
 import keysmith
 
@@ -37,9 +36,8 @@ def cli(parser=None):
     )
     parser.add_argument(
         '--version',
-        help='Keysmith v{version}'.format(version=keysmith.__version__),
-        default=False,
-        action='store_true'
+        action='version',
+        version='%(prog)s {0}'.format(keysmith.__version__),
     )
     return parser
 
@@ -48,9 +46,6 @@ def main(args=None):
     """Execute CLI commands."""
     if args is None:
         args = cli().parse_args()
-    if args.version:
-        print(keysmith.__version__)
-        sys.exit(0)
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
         'printable': string.printable,
