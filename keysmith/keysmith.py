@@ -1,4 +1,4 @@
-"""Key Definition"""
+"""Deprecated Key Definition"""
 
 import random
 

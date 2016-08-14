@@ -34,7 +34,7 @@ Keysmith can also be imported into other Python projects.
 
     import string
     import keysmith
-    print(keysmith.Key(seq=string.letters, nteeth=12, delimiter=''))
+    print(keysmith.generated.key(seq=string.letters, nteeth=12, delimiter=''))
 
 Pro Tip
 ~~~~~~~
