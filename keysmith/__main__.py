@@ -1,4 +1,4 @@
-"""Keysmith Interface"""
+"""Keysmith Default Interface"""
 
 import argparse
 import math
@@ -9,8 +9,10 @@ import sys
 import keysmith
 
 
-def cli(parser=argparse.ArgumentParser(prog='keysmith')):
+def cli(parser=None):
     """Parse CLI arguments and options."""
+    if parser is None:
+        parser = argparse.ArgumentParser(prog='keysmith')
     parser.add_argument(
         '-d', '--delimiter',
         help='a delimiter for the samples (teeth) in the key',
@@ -42,9 +44,10 @@ def cli(parser=argparse.ArgumentParser(prog='keysmith')):
     return parser
 
 
-def main():
+def main(args=None):
     """Execute CLI commands."""
-    args = cli().parse_args()
+    if args is None:
+        args = cli().parse_args()
     if args.version:
         print(keysmith.__version__)
         sys.exit(0)
