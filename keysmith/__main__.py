@@ -2,8 +2,9 @@
 
 import argparse
 import math
-import os
 import string
+
+import pkg_resources
 
 import keysmith
 
@@ -52,10 +53,7 @@ def main(args=None):
     }.get(args.population)
     if words is None:
         if args.population == 'default':
-            args.population = os.path.join(
-                os.path.dirname(os.path.abspath(__file__)),
-                'words.txt',
-            )
+            args.population = pkg_resources.resource_filename('keysmith', 'words.txt')
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
     key = keysmith.generated.key(
