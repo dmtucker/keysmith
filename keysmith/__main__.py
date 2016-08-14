@@ -15,24 +15,24 @@ def cli(parser=None):
     parser.add_argument(
         '-d', '--delimiter',
         help='a delimiter for the samples (teeth) in the key',
-        default=' '
+        default=' ',
     )
     parser.add_argument(
         '-n', '--nteeth', '--nsamples',
         help='the number of random samples to take',
         type=int,
-        default=3
+        default=3,
     )
     parser.add_argument(
         '-p', '--population',
         help='alphanumeric, default, printable, or a path',
-        default='default'
+        default='default',
     )
     parser.add_argument(
         '--stats',
         help='statistics for the key',
         default=False,
-        action='store_true'
+        action='store_true',
     )
     parser.add_argument(
         '--version',
@@ -54,14 +54,14 @@ def main(args=None):
         if args.population == 'default':
             args.population = os.path.join(
                 os.path.dirname(os.path.abspath(__file__)),
-                'words.txt'
+                'words.txt',
             )
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
     key = keysmith.generated.key(
         seq=words,
         nteeth=args.nteeth,
-        delimiter=args.delimiter
+        delimiter=args.delimiter,
     )
     print(key)
     if args.stats:
@@ -71,7 +71,7 @@ def main(args=None):
         print('population = {pop}'.format(pop=len(words)))
         print('   entropy {sign} {bits}b'.format(
             sign='<' if len(args.delimiter) < 1 else '~',
-            bits=round(math.log(len(words), 2) * args.nteeth, 2)
+            bits=round(math.log(len(words), 2) * args.nteeth, 2),
         ))
 
 
