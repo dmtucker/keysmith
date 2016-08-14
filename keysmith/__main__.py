@@ -1,80 +1,75 @@
-"""Keysmith Interface"""
+"""Keysmith Default Interface"""
 
 import argparse
 import math
-import os
 import string
-import sys
 
-from keysmith import __version__
-from keysmith import Key
+import pkg_resources
+
+import keysmith
 
 
-def cli(parser=argparse.ArgumentParser(prog='keysmith')):
+def cli(parser=None):
     """Parse CLI arguments and options."""
+    if parser is None:
+        parser = argparse.ArgumentParser(prog=keysmith.CONSOLE_SCRIPT)
     parser.add_argument(
         '-d', '--delimiter',
         help='a delimiter for the samples (teeth) in the key',
-        default=' '
+        default=' ',
     )
     parser.add_argument(
-        '-n', '--nsamples',
+        '-n', '--nteeth', '--nsamples',
         help='the number of random samples to take',
         type=int,
-        default=3
+        default=3,
     )
     parser.add_argument(
         '-p', '--population',
         help='alphanumeric, default, printable, or a path',
-        default='default'
+        default='default',
     )
     parser.add_argument(
         '--stats',
         help='statistics for the key',
         default=False,
-        action='store_true'
+        action='store_true',
     )
     parser.add_argument(
         '--version',
-        help='Keysmith v{version}'.format(version=__version__),
-        default=False,
-        action='store_true'
+        action='version',
+        version='%(prog)s {0}'.format(keysmith.__version__),
     )
     return parser
 
 
-def main():
+def main(args=None):
     """Execute CLI commands."""
-    args = cli().parse_args()
-    if args.version:
-        print(__version__)
-        sys.exit(0)
+    if args is None:
+        args = cli().parse_args()
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
         'printable': string.printable,
     }.get(args.population)
     if words is None:
         if args.population == 'default':
-            args.population = os.path.join(
-                os.path.dirname(os.path.abspath(__file__)),
-                'words.txt'
-            )
+            args.population = pkg_resources.resource_filename('keysmith', 'words.txt')
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = Key(
+    key = keysmith.generated.key(
         seq=words,
-        nteeth=args.nsamples,
-        delimiter=args.delimiter
+        nteeth=args.nteeth,
+        delimiter=args.delimiter,
     )
     print(key)
     if args.stats:
         print('=' * len(key))
         print('characters = {characters}'.format(characters=len(key)))
-        print('   samples = {nteeth}'.format(nteeth=args.nsamples))
+        print('   samples = {nteeth}'.format(nteeth=args.nteeth))
         print('population = {pop}'.format(pop=len(words)))
         print('   entropy {sign} {bits}b'.format(
             sign='<' if len(args.delimiter) < 1 else '~',
-            bits=round(math.log(len(words), 2) * args.nsamples, 2)
+            bits=round(math.log(len(words), 2) * args.nteeth, 2),
         ))
 
 

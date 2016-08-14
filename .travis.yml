@@ -8,11 +8,13 @@ branches:
     - master
 before_install:
   - pip install --upgrade pip
-  - pip install pep8 pylint
+  - pip install pep8 pylint coverage
 install:
   - python setup.py sdist
   - pip install ./dist/*
 script:
   - keysmith --help
+  - coverage run --source=keysmith -m keysmith --stats
+  - coverage report
   - pep8 keysmith setup.py
   - pylint keysmith setup.py
