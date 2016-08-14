@@ -11,7 +11,7 @@ import keysmith
 def cli(parser=None):
     """Parse CLI arguments and options."""
     if parser is None:
-        parser = argparse.ArgumentParser(prog='keysmith')
+        parser = argparse.ArgumentParser(prog=keysmith.CONSOLE_SCRIPT)
     parser.add_argument(
         '-d', '--delimiter',
         help='a delimiter for the samples (teeth) in the key',

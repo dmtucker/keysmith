@@ -25,7 +25,11 @@ setup(
     url='https://github.com/dmtucker/keysmith',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
-    entry_points={'console_scripts': ['keysmith = keysmith.__main__:main']},
+    entry_points={
+        'console_scripts': [
+            '{0} = keysmith.__main__:main'.format(keysmith.CONSOLE_SCRIPT),
+        ],
+    },
     keywords='password generator keygen',
     classifiers=[
         'License :: OSI Approved :: '
