@@ -1,7 +1,6 @@
 """A Diceware-style Password Generator"""
 
-from keysmith import generated  # pylint: disable=import-self
-from keysmith.keysmith import Key
+from keysmith import generated
 
 __version__ = '1.1.0'
 
