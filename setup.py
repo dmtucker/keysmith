@@ -20,7 +20,7 @@ setup(
     description=keysmith.__doc__,
     long_description=README,
     author='David Tucker',
-    author_email='david.michael.tucker@gmail.com',
+    author_email='david@tucker.name',
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
