@@ -27,7 +27,7 @@ def cli(parser=None):
     )
     parser.add_argument(
         '-p', '--population',
-        help='alphanumeric, printable, or a path',
+        help='alphanumeric, ascii_letters, digits, printable, or a path',
         default=pkg_resources.resource_filename('keysmith', 'words.txt'),
     )
     parser.add_argument(
@@ -50,6 +50,8 @@ def main(args=None):
         args = cli().parse_args()
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
+        'ascii_letters': string.ascii_letters,
+        'digits': string.digits,
         'printable': string.printable,
     }.get(args.population)
     if words is None:
