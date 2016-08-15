@@ -27,7 +27,8 @@ def cli(parser=None):
     )
     parser.add_argument(
         '-p', '--population',
-        help='alphanumeric, ascii_letters, digits, printable, or a path',
+        help='alphanumeric, ascii_letters, digits, printable,'
+             ' or a path to a file of newline-delimited items',
         default=pkg_resources.resource_filename('keysmith', 'words.txt'),
     )
     parser.add_argument(
