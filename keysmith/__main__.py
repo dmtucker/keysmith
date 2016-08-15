@@ -27,8 +27,8 @@ def cli(parser=None):
     )
     parser.add_argument(
         '-p', '--population',
-        help='alphanumeric, default, printable, or a path',
-        default='default',
+        help='alphanumeric, printable, or a path',
+        default=pkg_resources.resource_filename('keysmith', 'words.txt'),
     )
     parser.add_argument(
         '--stats',
@@ -53,8 +53,6 @@ def main(args=None):
         'printable': string.printable,
     }.get(args.population)
     if words is None:
-        if args.population == 'default':
-            args.population = pkg_resources.resource_filename('keysmith', 'words.txt')
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
     key = keysmith.key(
