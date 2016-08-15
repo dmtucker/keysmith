@@ -11,10 +11,10 @@ before_install:
   - pip install pep8 pylint coverage
 install:
   - python setup.py sdist
-  - pip install ./dist/*
+  - pip install dist/*
 script:
   - keysmith --help
   - coverage run --source=keysmith -m keysmith --stats
   - coverage report
-  - pep8 keysmith setup.py
-  - pylint keysmith setup.py
+  - pep8 keysmith.py setup.py
+  - pylint keysmith.py setup.py
