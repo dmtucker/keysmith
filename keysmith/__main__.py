@@ -3,6 +3,7 @@
 import argparse
 import math
 import string
+import sys
 
 import pkg_resources
 
@@ -58,8 +59,12 @@ def main(args=None):
         'printable': string.printable,
     }.get(args.population)
     if seq is None:
-        with open(args.population, 'r') as f:
-            seq = f.read().splitlines()
+        try:
+            with open(args.population, 'r') as f:
+                seq = f.read().splitlines()
+        except OSError as ex:
+            print(ex, file=sys.stderr)
+            return 1
 
     key = keysmith.key(seq=seq, nteeth=args.nteeth, delimiter=args.delimiter)
     print(key)
@@ -72,6 +77,8 @@ def main(args=None):
             bits=round(math.log(len(seq), 2) * args.nteeth, 2),
         ))
 
+    return 0
+
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
