@@ -27,12 +27,11 @@ setuptools.setup(
     },
     keywords='password generator keygen',
     classifiers=[
-        'License :: OSI Approved :: '
-        'GNU Lesser General Public License v2 or later (LGPLv2+)',
+        'Development Status :: 5 - Production/Stable',
+        'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
-        'Development Status :: 5 - Production/Stable',
     ],
 )
