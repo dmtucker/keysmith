@@ -40,6 +40,12 @@ def cli(parser=None):
         default=pkg_resources.resource_filename('keysmith', 'words.txt'),
     )
     parser.add_argument(
+        '--encoding',
+        help='the encoding of the population file'
+             ' (see https://docs.python.org/3/library/codecs.html#standard-encodings)',
+        default='utf-8',
+    )
+    parser.add_argument(
         '--stats',
         help='show statistics for the key',
         default=False,
@@ -62,9 +68,9 @@ def main(args=None):
     seq = POPULATIONS.get(args.population)
     if seq is None:
         try:
-            with open(args.population, 'r') as f:
-                seq = f.read().splitlines()
-        except OSError as ex:
+            with open(args.population, 'r', encoding=args.encoding) as f:
+                seq = list(f)
+        except (OSError, UnicodeError) as ex:
             print(ex, file=sys.stderr)
             return 1
 
