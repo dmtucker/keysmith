@@ -1,6 +1,6 @@
 """A Diceware-style Password Generator"""
 
-from keysmith.generated import key
+from keysmith.key import key
 
 __version__ = '1.1.0'
 
