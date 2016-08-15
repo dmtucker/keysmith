@@ -1,21 +1,18 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-"""A setuptools based setup module.
+"""Keysmith Packaging"""
 
-See:
-https://packaging.python.org/en/latest/distributing.html
-https://github.com/pypa/sampleproject
-"""
+import setuptools
 
-from setuptools import setup, find_packages
 import keysmith
+
 
 with open('README.rst') as readme_file:
     README = readme_file.read()
 
-setup(
-    name='keysmith',
+setuptools.setup(
+    name=keysmith.__name__,
     version=keysmith.__version__,
     description=keysmith.__doc__,
     long_description=README,
@@ -23,12 +20,10 @@ setup(
     author_email='david@tucker.name',
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    py_modules=[keysmith.__name__],
     include_package_data=True,
     entry_points={
-        'console_scripts': [
-            '{0} = keysmith.__main__:main'.format(keysmith.CONSOLE_SCRIPT),
-        ],
+        'console_scripts': ['{0} = {1}:main'.format(keysmith.CONSOLE_SCRIPT, keysmith.__name__)],
     },
     keywords='password generator keygen',
     classifiers=[
