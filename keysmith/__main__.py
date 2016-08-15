@@ -50,27 +50,27 @@ def main(args=None):
     if args is None:
         args = cli().parse_args()
 
-    words = {
+    seq = {
         'alphanumeric': string.ascii_letters + string.digits,
         'ascii_letters': string.ascii_letters,
         'digits': string.digits,
         'printable': string.printable,
     }.get(args.population)
-    if words is None:
+    if seq is None:
         with open(args.population, 'r') as f:
-            words = f.read().splitlines()
+            seq = f.read().splitlines()
 
-    key = keysmith.key(seq=words, nteeth=args.nteeth, delimiter=args.delimiter)
+    key = keysmith.key(seq=seq, nteeth=args.nteeth, delimiter=args.delimiter)
     print(key)
 
     if args.stats:
         print('=' * len(key))
         print('characters = {characters}'.format(characters=len(key)))
         print('   samples = {nteeth}'.format(nteeth=args.nteeth))
-        print('population = {pop}'.format(pop=len(words)))
+        print('population = {pop}'.format(pop=len(seq)))
         print('   entropy {sign} {bits}b'.format(
             sign='<' if len(args.delimiter) < 1 else '~',
-            bits=round(math.log(len(words), 2) * args.nteeth, 2),
+            bits=round(math.log(len(seq), 2) * args.nteeth, 2),
         ))
 
 
