@@ -10,6 +10,14 @@ import pkg_resources
 import keysmith
 
 
+POPULATIONS = {
+    'alphanumeric': string.ascii_letters + string.digits,
+    'ascii_letters': string.ascii_letters,
+    'digits': string.digits,
+    'printable': string.printable,
+}
+
+
 def cli(parser=None):
     """Parse CLI arguments and options."""
     if parser is None:
@@ -28,8 +36,7 @@ def cli(parser=None):
     )
     parser.add_argument(
         '-p', '--population',
-        help='alphanumeric, ascii_letters, digits, printable,'
-             ' or a path to a file of newline-delimited items',
+        help=', '.join(POPULATIONS.keys()) + ', or a path to a file of line-delimited items',
         default=pkg_resources.resource_filename('keysmith', 'words.txt'),
     )
     parser.add_argument(
@@ -52,12 +59,7 @@ def main(args=None):
     if args is None:
         args = cli().parse_args()
 
-    seq = {
-        'alphanumeric': string.ascii_letters + string.digits,
-        'ascii_letters': string.ascii_letters,
-        'digits': string.digits,
-        'printable': string.printable,
-    }.get(args.population)
+    seq = POPULATIONS.get(args.population)
     if seq is None:
         try:
             with open(args.population, 'r') as f:
