@@ -56,7 +56,7 @@ def main(args=None):
             args.population = pkg_resources.resource_filename('keysmith', 'words.txt')
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = keysmith.generated.key(
+    key = keysmith.key(
         seq=words,
         nteeth=args.nteeth,
         delimiter=args.delimiter,
