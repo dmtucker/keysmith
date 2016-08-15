@@ -37,7 +37,7 @@ def cli(parser=None):
         '-n', '--nsamples',
         help='the number of random samples to take',
         type=int,
-        default=3,
+        default=6,
         dest='nteeth',
     )
     parser.add_argument(
