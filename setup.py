@@ -21,7 +21,6 @@ setuptools.setup(
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
     py_modules=[keysmith.__name__],
-    include_package_data=True,
     entry_points={
         'console_scripts': ['{0} = {1}:main'.format(keysmith.CONSOLE_SCRIPT, keysmith.__name__)],
     },
