@@ -19,10 +19,11 @@ def cli(parser=None):
         default=' ',
     )
     parser.add_argument(
-        '-n', '--nteeth', '--nsamples',
+        '-n', '--nsamples',
         help='the number of random samples to take',
         type=int,
         default=3,
+        dest='nteeth',
     )
     parser.add_argument(
         '-p', '--population',
