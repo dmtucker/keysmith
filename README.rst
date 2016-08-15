@@ -32,9 +32,9 @@ Keysmith can also be imported into other Python projects.
 
 .. code:: python
 
-    import string
-    import keysmith
-    print(keysmith.key(seq=string.ascii_letters, nteeth=12, delimiter=''))
+    >>> import keysmith, string
+    >>> print(keysmith.key(seq=string.ascii_letters, nteeth=12, delimiter=''))
+    dLrkGXdRUGQw
 
 Pro Tip
 ~~~~~~~
