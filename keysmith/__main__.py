@@ -32,7 +32,7 @@ def cli(parser=None):
     )
     parser.add_argument(
         '--stats',
-        help='statistics for the key',
+        help='show statistics for the key',
         default=False,
         action='store_true',
     )
@@ -64,11 +64,9 @@ def main(args=None):
     print(key)
 
     if args.stats:
-        print('=' * len(key))
-        print('characters = {characters}'.format(characters=len(key)))
-        print('   samples = {nteeth}'.format(nteeth=args.nteeth))
-        print('population = {pop}'.format(pop=len(seq)))
-        print('   entropy {sign} {bits}b'.format(
+        print('* {0} characters'.format(len(key)))
+        print('* {0} samples from a population of {1}'.format(args.nteeth, len(seq)))
+        print('* entropy {sign} {bits} bits'.format(
             sign='<' if len(args.delimiter) < 1 else '~',
             bits=round(math.log(len(seq), 2) * args.nteeth, 2),
         ))
