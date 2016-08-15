@@ -46,8 +46,10 @@ def cli(parser=None):
 
 def main(args=None):
     """Execute CLI commands."""
+
     if args is None:
         args = cli().parse_args()
+
     words = {
         'alphanumeric': string.ascii_letters + string.digits,
         'ascii_letters': string.ascii_letters,
@@ -57,12 +59,10 @@ def main(args=None):
     if words is None:
         with open(args.population, 'r') as f:
             words = f.read().splitlines()
-    key = keysmith.key(
-        seq=words,
-        nteeth=args.nteeth,
-        delimiter=args.delimiter,
-    )
+
+    key = keysmith.key(seq=words, nteeth=args.nteeth, delimiter=args.delimiter)
     print(key)
+
     if args.stats:
         print('=' * len(key))
         print('characters = {characters}'.format(characters=len(key)))
