@@ -5,8 +5,6 @@ import math
 import string
 import sys
 
-import pkg_resources
-
 import keysmith
 
 
@@ -40,7 +38,7 @@ def cli(parser=None):
     parser.add_argument(
         '-p', '--population',
         help=', '.join(POPULATIONS.keys()) + ', or a path to a file of line-delimited items',
-        default=pkg_resources.resource_filename('keysmith', 'words.txt'),
+        default='/usr/share/dict/words',
     )
     parser.add_argument(
         '--encoding',
