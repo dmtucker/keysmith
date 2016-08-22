@@ -75,11 +75,12 @@ def key(
     return delimiter.join(tooth(seq) for _ in range(nteeth))
 
 
-def main(args=None):
+def main(argv=None):
     """Execute CLI commands."""
 
-    if args is None:
-        args = cli().parse_args()
+    if argv is None:
+        argv = sys.argv[1:]
+    args = cli().parse_args(argv)
 
     seq = POPULATIONS.get(args.population)
     if seq is None:
