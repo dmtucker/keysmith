@@ -7,14 +7,6 @@ branches:
   only:
     - master
 before_install:
-  - pip install --upgrade pip
-  - pip install pep8 pylint coverage
-install:
-  - python setup.py sdist
-  - pip install dist/*
+  - pip install tox-travis
 script:
-  - keysmith --help
-  - coverage run --source=keysmith -m keysmith --stats
-  - coverage report
-  - pep8 keysmith.py setup.py
-  - pylint keysmith.py setup.py
+  - tox
