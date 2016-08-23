@@ -62,7 +62,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 .. |Build Status| image:: https://img.shields.io/travis/dmtucker/keysmith.svg
    :target: https://travis-ci.org/dmtucker/keysmith
-.. |Test Coverage| image:: https://coveralls.io/repos/github/dmtucker/keysmith/badge.svg?branch=master
-   :target: https://coveralls.io/github/dmtucker/keysmith?branch=master
+.. |Test Coverage| image:: https://img.shields.io/coveralls/dmtucker/keysmith.svg
+   :target: https://coveralls.io/github/dmtucker/keysmith
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
    :target: https://pypi.python.org/pypi/keysmith
