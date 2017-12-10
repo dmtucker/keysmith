@@ -2,12 +2,14 @@
 
 """Tests for keysmith.py"""
 
+import subprocess
+
 import keysmith
 
 
-def test_main():
-    """Test a full run."""
-    assert keysmith.main() == 0
+def test_script():
+    """Test a full run when directly invoking."""
+    subprocess.check_call([keysmith.__file__])
 
 
 def test_main_stats():
