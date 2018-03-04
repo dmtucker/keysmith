@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """Tests for keysmith.py"""
 
 import subprocess
