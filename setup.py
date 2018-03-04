@@ -20,7 +20,7 @@ setuptools.setup(
     author_email='david@tucker.name',
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
-    python_requires='~=3.4',
+    python_requires='~=3.5',
     py_modules=[keysmith.__name__],
     entry_points={
         'console_scripts': ['{0} = {1}:main'.format(keysmith.CONSOLE_SCRIPT, keysmith.__name__)],
@@ -30,7 +30,6 @@ setuptools.setup(
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
