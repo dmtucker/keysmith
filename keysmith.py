@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""A Diceware-style Password Generator"""
+"""Generate Diceware-style passwords."""
 
 import argparse
 import math
@@ -84,7 +84,6 @@ def key(
 
 def main(argv: Sequence[str] = tuple(sys.argv[1:])):
     """Execute CLI commands."""
-
     args = cli().parse_args(argv)
 
     seq = POPULATIONS.get(args.population)  # type: Sequence

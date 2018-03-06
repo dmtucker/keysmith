@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Keysmith Packaging"""
+"""Package Keysmith."""
 
 import setuptools  # type: ignore
 
