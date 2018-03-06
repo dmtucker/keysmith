@@ -37,13 +37,14 @@ def build_cli(parser: argparse.ArgumentParser) -> None:
     )
     parser.add_argument(
         '-p', '--population',
-        help=', '.join(POPULATIONS.keys()) + ', or a path to a file of line-delimited items',
+        help='{0}, or a path to a file of line-delimited items'.format(
+            ', '.join(POPULATIONS.keys()),
+        ),
         default='/usr/share/dict/words',
     )
     parser.add_argument(
         '--encoding',
-        help='the encoding of the population file'
-             ' (see https://docs.python.org/3/library/codecs.html#standard-encodings)',
+        help='the encoding of the population file',
         default='utf-8',
     )
     parser.add_argument(
@@ -89,8 +90,8 @@ def main(argv: Sequence[str] = tuple(sys.argv[1:])):
     seq = POPULATIONS.get(args.population)  # type: Sequence
     if seq is None:
         try:
-            with open(args.population, 'r', encoding=args.encoding) as f:
-                seq = list(f)
+            with open(args.population, 'r', encoding=args.encoding) as file_:
+                seq = list(file_)
         except (OSError, UnicodeError) as ex:
             print(ex, file=sys.stderr)
             return 1
@@ -99,12 +100,14 @@ def main(argv: Sequence[str] = tuple(sys.argv[1:])):
     print(main_key)
 
     if args.stats:
-        print('* {0} characters'.format(len(main_key)))
-        print('* {0} samples from a population of {1}'.format(args.nteeth, len(seq)))
-        print('* entropy {sign} {bits} bits'.format(
-            sign='<' if len(args.delimiter) < 1 else '~',
-            bits=round(math.log(len(seq), 2) * args.nteeth, 2),
-        ))
+        print('*', len(main_key), 'characters')
+        print('*', args.nteeth, 'samples from a population of', len(seq))
+        print(
+            '* entropy {sign} {nbits} bits'.format(
+                sign='<' if len(args.delimiter) < 1 else '~',
+                nbits=round(math.log(len(seq), 2) * args.nteeth, 2),
+            ),
+        )
 
     return 0
 

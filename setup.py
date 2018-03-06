@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-# coding: utf-8
 
 """Keysmith Packaging"""
 
-import setuptools
+import setuptools  # type: ignore
 
 import keysmith
 
@@ -23,12 +22,18 @@ setuptools.setup(
     python_requires='~=3.5',
     py_modules=[keysmith.__name__],
     entry_points={
-        'console_scripts': ['{0} = {1}:main'.format(keysmith.CONSOLE_SCRIPT, keysmith.__name__)],
+        'console_scripts': [
+            '{script_name}={module}:main'.format(
+                script_name=keysmith.CONSOLE_SCRIPT,
+                module=keysmith.__name__,
+            ),
+        ],
     },
     keywords='password generator keygen',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
+        'License :: OSI Approved'
+        ' :: GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
