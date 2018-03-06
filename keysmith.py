@@ -20,6 +20,8 @@ POPULATIONS = {
     'printable': string.printable,
 }
 
+SYS_ARGV = tuple(sys.argv[1:])
+
 
 def build_cli(parser: argparse.ArgumentParser) -> None:
     """Build a parser for CLI arguments and options."""
@@ -82,7 +84,7 @@ def key(
     return delimiter.join(tooth(seq) for _ in range(nteeth))
 
 
-def main(argv: Sequence[str] = tuple(sys.argv[1:])):
+def main(argv: Sequence[str] = SYS_ARGV):
     """Execute CLI commands."""
     args = cli().parse_args(argv)
 
