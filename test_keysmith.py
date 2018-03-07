@@ -1,4 +1,4 @@
-"""Tests for keysmith.py"""
+"""Test Keysmith."""
 
 import subprocess
 

@@ -1,34 +1,53 @@
 #!/usr/bin/env python3
-# coding: utf-8
 
-"""Keysmith Packaging"""
-
-import setuptools
-
-import keysmith
+"""Package Keysmith."""
 
 
-with open('README.rst') as readme_file:
-    README = readme_file.read()
+import codecs
+import os.path
+import re
+
+import setuptools  # type: ignore
+
+
+def read(*parts):
+    """Read a file in this repository."""
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, *parts), 'r') as file_:
+        return file_.read()
+
+
+def find_version(*file_paths):
+    """
+    Read the file in setup.py and parse the version with a regex.
+
+    https://packaging.python.org/guides/single-sourcing-package-version/
+    """
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 
 setuptools.setup(
-    name=keysmith.__name__,
-    version=keysmith.__version__,
-    description=keysmith.__doc__,
-    long_description=README,
+    name='keysmith',
+    version=find_version('keysmith.py'),
+    description='A Diceware-style Password Generator',
+    long_description=read('README.rst'),
     author='David Tucker',
     author_email='david@tucker.name',
     license='LGPLv2+',
     url='https://github.com/dmtucker/keysmith',
     python_requires='~=3.5',
-    py_modules=[keysmith.__name__],
-    entry_points={
-        'console_scripts': ['{0} = {1}:main'.format(keysmith.CONSOLE_SCRIPT, keysmith.__name__)],
-    },
+    py_modules=['keysmith'],
+    entry_points={'console_scripts': ['keysmith=keysmith:main']},
     keywords='password generator keygen',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
+        'License :: OSI Approved'
+        ' :: GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
