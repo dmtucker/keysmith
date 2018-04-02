@@ -34,7 +34,7 @@ def find_version(*file_paths):
 setuptools.setup(
     name='keysmith',
     version=find_version('keysmith.py'),
-    description='A Diceware-style Password Generator',
+    description='Passphrase Generator',
     long_description=read('README.rst'),
     author='David Tucker',
     author_email='david@tucker.name',
@@ -43,7 +43,7 @@ setuptools.setup(
     python_requires='~=3.5',
     py_modules=['keysmith'],
     entry_points={'console_scripts': ['keysmith=keysmith:main']},
-    keywords='password generator keygen',
+    keywords='diceware generator keygen passphrase password',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved'

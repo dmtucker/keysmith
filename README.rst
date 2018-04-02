@@ -1,65 +1,73 @@
+========
 Keysmith
 ========
 
-Keysmith randomly chooses words from a list and concatenates them. With
-a sufficiently large list, these make `decent
-passphrases <//xkcd.com/936>`__ that tend to be more memorable than
-other random passwords. The concept is essentially the same as (and
-arguably simpler than) `Diceware <//en.wikipedia.org/wiki/Diceware>`__.
+Generate passphrases by randomly selecting and concatenating words from a list.
 
 |Build Status| |Test Coverage| |PyPI Version|
 
-Installation
-------------
+.. image:: https://imgs.xkcd.com/comics/password_strength.png
 
-Keysmith is available on
-`PyPI <https://pypi.python.org/pypi/keysmith>`__.
+Installation
+============
+
+Use `pip <https://pip.pypa.io/>`__ to install Keysmith from `PyPI <https://pypi.org/project/keysmith/>`__.
 
 .. code:: sh
 
     pip install keysmith
 
 Usage
------
+=====
 
-Keysmith can be run as a command-line utility.
+Keysmith can be invoked from a command-line or imported in Python.
 
-.. code:: sh
+CLI
+---
 
-    $ keysmith --help
-    usage: keysmith [-h] [-d DELIMITER] [-n NTEETH] [-p POPULATION]
-                    [--encoding ENCODING] [--stats] [--version]
+::
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -d DELIMITER, --delimiter DELIMITER
-                            a delimiter for the samples (teeth) in the key
-                            (default: )
-      -n NTEETH, --nsamples NTEETH
-                            the number of random samples to take (default: 6)
-      -p POPULATION, --population POPULATION
-                            alphanumeric, ascii_letters, digits, printable, or a
-                            path to a file of line-delimited items (default:
-                            /usr/share/dict/words)
-      --encoding ENCODING   the encoding of the population file (default: utf-8)
-      --stats               show statistics for the key (default: False)
-      --version             show program's version number and exit
+  $ keysmith --help
+  usage: keysmith [-h] [-d DELIMITER] [-n NTEETH] [-p POPULATION]
+                  [--encoding ENCODING] [--stats] [--version]
 
-Keysmith can also be imported into other Python projects.
+  optional arguments:
+    -h, --help            show this help message and exit
+    -d DELIMITER, --delimiter DELIMITER
+                          a delimiter for the samples (teeth) in the key
+                          (default: )
+    -n NTEETH, --nsamples NTEETH
+                          the number of random samples to take (default: 6)
+    -p POPULATION, --population POPULATION
+                          alphanumeric, ascii_letters, digits, printable, or a
+                          path to a file of line-delimited items (default:
+                          /usr/share/dict/words)
+    --encoding ENCODING   the encoding of the population file (default: utf-8)
+    --stats               show statistics for the key (default: False)
+    --version             show program's version number and exit
+
+::
+
+  $ keysmith -n4
+  correct horse battery staple
+
+API
+---
 
 .. code:: python
 
-    >>> import keysmith, string
-    >>> print(keysmith.key(seq=string.ascii_letters, nteeth=12, delimiter=''))
-    dLrkGXdRUGQw
+    >>> import keysmith
+    >>> help(keysmith)
 
-Pro Tip
-~~~~~~~
+.. code:: python
 
-    Use Keysmith with KeePass and Yubikey!
+    >>> with open('/usr/share/dict/words', 'r') as words:
+    ...     keysmith.key(seq=list(words), nteeth=4, delimiter=' ')
+    ...
+    'correct horse battery staple'
 
 License
--------
+=======
 
 Copyright (C) 2016 David Tucker
 

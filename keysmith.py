@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Generate Diceware-style passwords."""
+"""Generate passphrases."""
 
 import argparse
 import math
