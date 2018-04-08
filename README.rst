@@ -13,7 +13,7 @@ Generate passphrases by randomly selecting and concatenating words from a list.
 .. |Test Coverage| image:: https://img.shields.io/coveralls/dmtucker/keysmith.svg
    :target: https://coveralls.io/github/dmtucker/keysmith
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
-   :target: https://pypi.python.org/pypi/keysmith
+   :target: https://pypi.org/project/keysmith
 .. |XKCD Comic| image:: https://imgs.xkcd.com/comics/password_strength.png
    :target: https://xkcd.com/936/
 
