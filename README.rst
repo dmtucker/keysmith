@@ -20,7 +20,7 @@ Generate passphrases by randomly selecting and concatenating words from a list.
 Installation
 ============
 
-Use `pip <https://pip.pypa.io/>`__ to install Keysmith from `PyPI <https://pypi.org/project/keysmith/>`__.
+Use `pip <https://pip.pypa.io/>`__ to install Keysmith.
 
 .. code:: sh
 
