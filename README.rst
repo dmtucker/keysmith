@@ -4,6 +4,9 @@ Keysmith
 
 Generate passphrases by randomly selecting and concatenating words from a list.
 
+**Note: This project is no longer maintained.**
+Use `xkcdpass <https://pypi.org/project/xkcdpass>`__ instead.
+
 |Build Status| |Test Coverage| |PyPI Version|
 
 |XKCD Comic|
