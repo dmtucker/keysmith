@@ -37,21 +37,22 @@ CLI
 ::
 
   $ keysmith --help
-  usage: keysmith [-h] [-d DELIMITER] [-n NTEETH] [-p POPULATION]
-                  [--encoding ENCODING] [--stats] [--version]
+  usage: keysmith [-h] [--delimiter DELIMITER] [--encoding ENCODING]
+                  [--nsamples NTEETH] [--population POPULATION] [--stats]
+                  [--version]
 
   optional arguments:
     -h, --help            show this help message and exit
-    -d DELIMITER, --delimiter DELIMITER
+    --delimiter DELIMITER
                           a delimiter for the samples (teeth) in the key
                           (default: )
-    -n NTEETH, --nsamples NTEETH
+    --encoding ENCODING   the encoding of the population file (default: utf-8)
+    --nsamples NTEETH, -n NTEETH
                           the number of random samples to take (default: 6)
-    -p POPULATION, --population POPULATION
+    --population POPULATION, -p POPULATION
                           alphanumeric, ascii_letters, digits, printable, or a
                           path to a file of line-delimited items (default:
                           /usr/share/dict/words)
-    --encoding ENCODING   the encoding of the population file (default: utf-8)
     --stats               show statistics for the key (default: False)
     --version             show program's version number and exit
 

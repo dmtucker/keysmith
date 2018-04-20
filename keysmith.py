@@ -23,31 +23,31 @@ POPULATIONS = {
 SYS_ARGV = tuple(sys.argv[1:])
 
 
-def build_cli(parser: argparse.ArgumentParser) -> None:
+def build_parser(parser: argparse.ArgumentParser) -> None:
     """Build a parser for CLI arguments and options."""
     parser.add_argument(
-        '-d', '--delimiter',
+        '--delimiter',
         help='a delimiter for the samples (teeth) in the key',
         default=' ',
     )
     parser.add_argument(
-        '-n', '--nsamples',
+        '--encoding',
+        help='the encoding of the population file',
+        default='utf-8',
+    )
+    parser.add_argument(
+        '--nsamples', '-n',
         help='the number of random samples to take',
         type=int,
         default=6,
         dest='nteeth',
     )
     parser.add_argument(
-        '-p', '--population',
+        '--population', '-p',
         help='{0}, or a path to a file of line-delimited items'.format(
             ', '.join(POPULATIONS.keys()),
         ),
         default='/usr/share/dict/words',
-    )
-    parser.add_argument(
-        '--encoding',
-        help='the encoding of the population file',
-        default='utf-8',
     )
     parser.add_argument(
         '--stats',
@@ -62,13 +62,13 @@ def build_cli(parser: argparse.ArgumentParser) -> None:
     )
 
 
-def cli() -> argparse.ArgumentParser:
+def default_parser() -> argparse.ArgumentParser:
     """Create a parser for CLI arguments and options."""
     parser = argparse.ArgumentParser(
         prog=CONSOLE_SCRIPT,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    build_cli(parser)
+    build_parser(parser)
     return parser
 
 
@@ -86,7 +86,7 @@ def key(
 
 def main(argv: Sequence[str] = SYS_ARGV) -> int:
     """Execute CLI commands."""
-    args = cli().parse_args(argv)
+    args = default_parser().parse_args(argv)
 
     seq = POPULATIONS.get(args.population)  # type: Sequence
     if seq is None:
