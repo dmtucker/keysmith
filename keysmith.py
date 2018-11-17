@@ -9,7 +9,7 @@ import string
 import sys
 from typing import Callable, Sequence
 
-__version__ = '2.0.0'
+__version__ = '3.0.0'
 
 CONSOLE_SCRIPT = 'keysmith'
 
@@ -88,8 +88,9 @@ def main(argv: Sequence[str] = SYS_ARGV) -> int:
     """Execute CLI commands."""
     args = default_parser().parse_args(argv)
 
-    seq = POPULATIONS.get(args.population)  # type: Sequence
-    if seq is None:
+    try:
+        seq = POPULATIONS[args.population]  # type: Sequence
+    except KeyError:
         try:
             with open(args.population, 'r', encoding=args.encoding) as file_:
                 seq = list(file_)
@@ -105,7 +106,7 @@ def main(argv: Sequence[str] = SYS_ARGV) -> int:
         print('*', args.nteeth, 'samples from a population of', len(seq))
         print(
             '* entropy {sign} {nbits} bits'.format(
-                sign='<' if len(args.delimiter) < 1 else '~',
+                sign='~' if args.delimiter else '<',
                 nbits=round(math.log(len(seq), 2) * args.nteeth, 2),
             ),
         )
