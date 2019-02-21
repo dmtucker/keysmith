@@ -1,6 +1,7 @@
 """Test Keysmith."""
 
 import subprocess
+import sys
 
 import keysmith
 
@@ -8,6 +9,12 @@ import keysmith
 def test_script():
     """Test a full run when directly invoking."""
     subprocess.check_call([keysmith.__file__])
+
+
+def test_python_m():
+    """Test python -m."""
+    command = [sys.executable, '-m', 'keysmith']
+    assert subprocess.run(command).returncode == 0
 
 
 def test_main_stats():
