@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Package Keysmith."""
 
 
@@ -44,12 +42,5 @@ setuptools.setup(
     py_modules=['keysmith'],
     entry_points={'console_scripts': ['keysmith=keysmith:main']},
     keywords='diceware generator keygen passphrase password',
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'License :: OSI Approved'
-        ' :: GNU Lesser General Public License v2 or later (LGPLv2+)',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-    ],
+    classifiers=['Development Status :: 5 - Production/Stable'],
 )
