@@ -7,14 +7,12 @@ Generate passphrases by randomly selecting and concatenating words from a list.
 **Note: This project is no longer maintained.**
 Use `xkcdpass <https://pypi.org/project/xkcdpass>`__ instead.
 
-|Build Status| |Test Coverage| |PyPI Version|
+|Build Status| |PyPI Version|
 
 |XKCD Comic|
 
 .. |Build Status| image:: https://img.shields.io/travis/dmtucker/keysmith.svg
    :target: https://travis-ci.org/dmtucker/keysmith
-.. |Test Coverage| image:: https://img.shields.io/coveralls/dmtucker/keysmith.svg
-   :target: https://coveralls.io/github/dmtucker/keysmith
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/keysmith.svg
    :target: https://pypi.org/project/keysmith
 .. |XKCD Comic| image:: https://imgs.xkcd.com/comics/password_strength.png
