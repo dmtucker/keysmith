@@ -36,7 +36,7 @@ setuptools.setup(
     long_description=read('README.rst'),
     author='David Tucker',
     author_email='david@tucker.name',
-    license='LGPLv2+',
+    license='BSD 3-Clause License',
     url='https://github.com/dmtucker/keysmith',
     python_requires='~=3.5',
     py_modules=['keysmith'],
