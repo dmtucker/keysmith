@@ -54,4 +54,4 @@ It also deploys releases to the package repository automatically (see below).
 
 [PyPI](http://pypi.org/) serves releases publically.
 
-[![Build Status](https://img.shields.io/pypi/v/keysmith.svg)](https://pypi.org/project/keysmith)
+[![Release Status](https://img.shields.io/pypi/v/keysmith.svg)](https://pypi.org/project/keysmith)
