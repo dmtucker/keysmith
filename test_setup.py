@@ -16,5 +16,5 @@ def test_console_scripts():
     """Ensure console scripts were installed correctly."""
     assert any(
         os.path.isfile(os.path.join(directory, 'keysmith'))
-        for directory in sys.path
+        for directory in os.environ['PATH'].split(':')
     )
