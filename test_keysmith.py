@@ -8,7 +8,7 @@ import keysmith
 
 def test_script():
     """Test a full run when directly invoking."""
-    subprocess.check_call([keysmith.__file__])
+    subprocess.check_call([sys.executable, keysmith.__file__])
 
 
 def test_python_m():
