@@ -13,7 +13,7 @@ def test_script():
 
 def test_python_m():
     """Test python -m."""
-    command = [sys.executable, '-m', 'keysmith']
+    command = [sys.executable, '-m', keysmith.__name__]
     assert subprocess.run(command).returncode == 0
 
 

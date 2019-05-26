@@ -7,7 +7,7 @@ python:
 branches:
   only:
   - master
-install: pip install tox-travis
+install: pip install 'tox-travis ~= 0.12.0'
 script: tox
 deploy:
   provider: pypi

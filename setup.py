@@ -3,9 +3,10 @@
 
 import codecs
 import os.path
-import re
 
 import setuptools  # type: ignore
+
+import keysmith  # This project only depends on the standard library.
 
 
 def read(*parts):
@@ -15,32 +16,30 @@ def read(*parts):
         return file_.read()
 
 
-def find_version(*file_paths):
-    """
-    Read the file in setup.py and parse the version with a regex.
-
-    https://packaging.python.org/guides/single-sourcing-package-version/
-    """
-    version_file = read(*file_paths)
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                              version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
+ENTRY_POINTS = {
+    'console_scripts': [
+        '{name}={module}:{function}'.format(
+            name=keysmith.CONSOLE_SCRIPT,
+            module=keysmith.__name__,
+            function=keysmith.main.__name__,
+        ),
+    ],
+}
 
 
-setuptools.setup(
-    name='keysmith',
-    version=find_version('keysmith.py'),
-    description='Passphrase Generator',
-    long_description=read('README.rst'),
-    author='David Tucker',
-    author_email='david@tucker.name',
-    license='BSD 3-Clause License',
-    url='https://github.com/dmtucker/keysmith',
-    python_requires='~=3.5',
-    py_modules=['keysmith'],
-    entry_points={'console_scripts': ['keysmith=keysmith:main']},
-    keywords='diceware generator keygen passphrase password',
-    classifiers=['Development Status :: 5 - Production/Stable'],
-)
+if __name__ == '__main__':
+    setuptools.setup(
+        name=keysmith.__name__,
+        version=keysmith.__version__,
+        description='Passphrase Generator',
+        long_description=read('README.rst'),
+        author='David Tucker',
+        author_email='david@tucker.name',
+        license='BSD 3-Clause License',
+        url='https://github.com/dmtucker/keysmith',
+        python_requires='~=3.5',
+        py_modules=[keysmith.__name__],
+        entry_points=ENTRY_POINTS,
+        keywords='diceware generator keygen passphrase password',
+        classifiers=['Development Status :: 5 - Production/Stable'],
+    )
