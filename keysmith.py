@@ -7,7 +7,7 @@ import string
 import sys
 from typing import Callable, Sequence
 
-__version__ = '3.0.0'
+__version__ = '3.0.1'
 
 CONSOLE_SCRIPT = 'keysmith'
 
