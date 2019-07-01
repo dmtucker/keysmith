@@ -41,5 +41,5 @@ if __name__ == '__main__':
         py_modules=[keysmith.__name__],
         entry_points=ENTRY_POINTS,
         keywords='diceware generator keygen passphrase password',
-        classifiers=['Development Status :: 5 - Production/Stable'],
+        classifiers=['Development Status :: 7 - Inactive'],
     )
